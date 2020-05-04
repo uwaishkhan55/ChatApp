@@ -23,7 +23,7 @@ io.on("connection", (socket) => {
       console.log(idUserMap[user]);
       socket.broadcast.to(idUserMap[user]).emit("chat message", msg);
     } else {
-      socket.broadcast.emit("chat message", data);
+      io.emit("chat message", data);
     }
   });
 });
